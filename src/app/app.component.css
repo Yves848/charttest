@@ -1,9 +1,38 @@
-.main {
+.global {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
+    /* border: 1px solid royalblue; */
+    border-radius: 1em;
+    /* padding: 2rem; */
+}
+
+.main {
+    height: 100vh;
+    width: fit-content;
+    display: flex;
     flex-direction: row;
     gap: 1em;
-    border: 1px solid white;
-    padding: 2rem;
+}
+
+.top {
+    border-bottom: 1px dotted grey;
+    gap: 5px;
+}
+
+.menu {
+    width: 12em;
+    border-right: 1px dotted grey;
+}
+
+.menuItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button {
+    width: max-content;
 }
