@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "advalvas-4ddf0"
+  },
+  "targets": {
+    "advalvas-4ddf0": {
+      "hosting": {
+        "charttest": [
+          "advalvas-4ddf0"
+        ]
+      }
+    }
   }
 }

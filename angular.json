@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "charttest:build:production",
+            "firebaseProject": "advalvas-4ddf0",
+            "firebaseHostingSite": "advalvas-4ddf0"
+          }
         }
       }
     }
