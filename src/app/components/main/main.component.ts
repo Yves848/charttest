@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,8 @@ export class MainComponent implements OnInit {
   options: any;
   width: number;
   height: number;
-  constructor() {
+
+  constructor(public ds: DatabaseService) {
     this.data = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [

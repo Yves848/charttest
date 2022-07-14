@@ -5,7 +5,7 @@
 
         </ng-template>
         <ng-template #userLoggedInLeft>
-            <button pButton [label]="userName()"></button>
+            <button pButton [label]="userName()" (click)="logIn()"></button>
         </ng-template>
     </div>
     <div class="p-toolbar-group-right">
@@ -13,7 +13,7 @@
 
         </div>
         <ng-template #userNotLoggedInRight>
-            <button pButton label="Login" (click)="signIn()" class="p-button-success"></button>
+            <button pButton label="Login" (click)="logIn()" class="p-button-success"></button>
             <button pButton label="Register" class="p-button-success"></button>
         </ng-template>
         <ng-template #userLoggedInRight>

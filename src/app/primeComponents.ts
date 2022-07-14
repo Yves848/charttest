@@ -5,6 +5,7 @@ import { ChartModule } from 'primeng/chart';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
     exports: [
@@ -12,7 +13,8 @@ import { DialogModule } from 'primeng/dialog';
         ChartModule,
         ButtonModule,
         ToolbarModule,
-        DialogModule
+        DialogModule,
+        InputTextModule
     ]
 })
 export class PrimeComponentsModule { }

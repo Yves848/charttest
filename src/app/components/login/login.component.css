@@ -1,0 +1,20 @@
+.loginDialog {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 0;
+    gap: 1em;
+}
+
+#email {
+    width: 400px;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.confirmation>button {
+    width: 50%
+}

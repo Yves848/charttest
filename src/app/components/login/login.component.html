@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="loginDialog">
+    <span class="p-float-label">
+        <input id="email" type="text" pInputText [(ngModel)]="response.email">
+        <label for="email">Email</label>
+    </span>
+    <span class="p-float-label">
+        <input id="password" type="password" pInputText [(ngModel)]="response.password">
+        <label for="password">Password</label>
+    </span>
+</div>
+<div class="confirmation">
+    <button pButton type="button" icon="pi pi-ban" iconPos="left" label="Cancel" class="p-button-danger"
+        (click)="clickCancel()">
+    </button>
+    <button pButton type="button" icon="pi pi-check" iconPos="left" label="Ok" class="p-button-success"
+        (click)="clickOk()"></button>
+</div>

@@ -41,9 +41,4 @@ export class AuthentificationService {
     localStorage.removeItem('user');
   }
 
-  isUserLoggedIn(): boolean {
-    return (this.user);
-  }
-
-
 }
