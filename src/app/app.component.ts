@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthentificationService } from './services/authentification.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,16 @@ import { AuthentificationService } from './services/authentification.service';
 export class AppComponent {
   title = 'charttest';
 
-  constructor(public as: AuthentificationService) {
+  constructor(public as: AuthentificationService, private router: Router) {
 
   }
 
   isUserLoggedIn(): boolean {
     return this.as.user !== null;
+  }
+
+  poidsClick() {
+    this.router.navigate(['poids']);
   }
 
 }
