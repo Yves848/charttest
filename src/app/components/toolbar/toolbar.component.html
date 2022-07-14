@@ -1,9 +1,24 @@
 <p-toolbar>
     <div class="p-toolbar-group-left">
+        <div *ngIf="isUserLoggedIn(); then userLoggedInLeft"></div>
+        <ng-template #userNotLoggedInLeft>
 
+        </ng-template>
+        <ng-template #userLoggedInLeft>
+            <button pButton [label]="userName()"></button>
+        </ng-template>
     </div>
     <div class="p-toolbar-group-right">
-        <button pButton label="Login" (click)="signIn()" class="p-button-success"></button>
-        <button pButton label="Register" class="p-button-success"></button>
+        <div *ngIf="isUserLoggedIn(); then userLoggedInRight; else userNotLoggedInRight">
+
+        </div>
+        <ng-template #userNotLoggedInRight>
+            <button pButton label="Login" (click)="signIn()" class="p-button-success"></button>
+            <button pButton label="Register" class="p-button-success"></button>
+        </ng-template>
+        <ng-template #userLoggedInRight>
+            <button pButton label="Logout" (click)="signOut()" class="p-button-success"></button>
+        </ng-template>
+
     </div>
 </p-toolbar>

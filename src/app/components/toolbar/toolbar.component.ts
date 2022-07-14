@@ -8,13 +8,25 @@ import { AuthentificationService } from '../../services/authentification.service
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private as: AuthentificationService) { }
+  constructor(public as: AuthentificationService) { }
 
   ngOnInit(): void {
   }
 
-  signIn() {
-    this.as.signInWithEmailAndPassword('yves.godart@gmail.com', 'daeGh@id375@@');
+  async signIn() {
+    await this.as.signInWithEmailAndPassword('yves.godart@gmail.com', 'daeGh@id375@@');
+  }
+
+  async signOut() {
+    await this.as.SignOut();
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.as.user !== null;
+  }
+
+  userName(): string {
+    return this.as.user.displayName;
   }
 
 }

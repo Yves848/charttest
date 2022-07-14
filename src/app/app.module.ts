@@ -10,6 +10,7 @@ import { PrimeComponentsModule } from './primeComponents';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LoginComponent } from './components/login/login.component';
+import { AuthentificationService } from './services/authentification.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     PrimeComponentsModule
   ],
-  providers: [],
+  providers: [
+    AuthentificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
