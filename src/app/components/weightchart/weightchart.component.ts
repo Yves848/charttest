@@ -13,11 +13,11 @@ export class WeightchartComponent implements OnInit {
   options: any;
   constructor(private ds: DatabaseService) {
     this.data = {
-      labels: [],
+      labels: ['un', 'deux', 'trois'],
       datasets: [
         {
           label: 'Evolution Poids',
-          data: [],
+          data: [10, 30, 20],
           borderColor: '#42A5F5',
           tension: .4
         }
@@ -36,9 +36,29 @@ export class WeightchartComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {
-    const data: poids[] = [];
+  async refresh() {
+    const aLabels: string[] = [];
+    const aWeights: number[] = [];
+    await this.ds.weights.forEach(async (element: poids) => {
+      aLabels.push(element.date);
+      aWeights.push(element.poids);
+      console.log('poids', aWeights);
+    })
+    this.data = {
+      labels: aLabels,
+      datasets: [
+        {
+          label: 'Evolution Poids',
+          data: aWeights,
+          borderColor: '#42A5F5',
+          tension: .4
+        }
+      ]
+    }
+  }
 
+  ngOnInit(): void {
+    this.refresh();
   }
 
 }
