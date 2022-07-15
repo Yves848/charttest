@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from './services/authentification.service';
+import { DatabaseService } from './services/database.service'
 import { Router } from '@angular/router';
 
 
@@ -11,8 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'charttest';
 
-  constructor(public as: AuthentificationService, private router: Router) {
-
+  constructor(public as: AuthentificationService, private router: Router, public ds: DatabaseService) {
   }
 
   isUserLoggedIn(): boolean {

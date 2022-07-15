@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database.service';
 import { poids } from 'src/app/interfaces/data';
+import { ASTWithName } from '@angular/compiler';
 
 @Component({
   selector: 'app-weightchart',
@@ -12,17 +13,6 @@ export class WeightchartComponent implements OnInit {
   data: any;
   options: any;
   constructor(private ds: DatabaseService) {
-    this.data = {
-      labels: this.ds.aLabels,
-      datasets: [
-        {
-          label: 'Evolution Poids',
-          data: this.ds.aWeights,
-          borderColor: '#42A5F5',
-          tension: .2
-        }
-      ]
-    }
 
     this.options = {
       title: {
@@ -37,13 +27,15 @@ export class WeightchartComponent implements OnInit {
   }
 
   async refresh() {
-    console.log('ds.aweights', this.ds.aWeights);
+    var aLabels = this.ds.aLabels.slice(-10);
+    var aWeights = this.ds.aWeights.slice(-10);
+    console.log('refresh', aLabels, aWeights);
     this.data = {
-      labels: this.ds.aLabels,
+      labels: aLabels,
       datasets: [
         {
           label: 'Evolution Poids',
-          data: this.ds.aWeights,
+          data: aWeights,
           borderColor: '#42A5F5',
           tension: .4
         }
@@ -51,8 +43,11 @@ export class WeightchartComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.refresh();
+  async ngOnInit() {
+    setTimeout(() => {
+      this.refresh();
+    }, 500);
+
   }
 
 }

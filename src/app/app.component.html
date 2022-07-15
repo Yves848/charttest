@@ -1,10 +1,12 @@
 <div class="global">
+
     <app-toolbar></app-toolbar>
     <div *ngIf="isUserLoggedIn(); then userLoggedIn">
 
     </div>
 
     <ng-template #userLoggedIn>
+
         <div class="main">
             <div class="menu">
                 <div class="menuItems">

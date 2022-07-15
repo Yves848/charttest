@@ -1,0 +1,9 @@
+<div class="dash">
+    <div class="graph">
+        <app-weightchart></app-weightchart>
+    </div>
+    <div class="weights">
+        <p *ngFor="let xweight of aWeight">{{xweight.date}} {{xweight.poids}}q</p>
+        <p *ngFor="let weight of ds.weights | async"></p>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.dash {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 89vw;
+    /* border: 1px dotted burlywood; */
+}
+
+.graph,
+.weights {
+    padding: 1rem;
+    margin: 2rem;
+    border: 1px solid beige;
+    width: 50%;
+}
+
+.weights {}

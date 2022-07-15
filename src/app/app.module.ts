@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthentificationService } from './services/authentification.service';
 import { WeightchartComponent } from './components/weightchart/weightchart.component';
 import { DatabaseService } from './services/database.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DatabaseService } from './services/database.service';
     MainComponent,
     ToolbarComponent,
     LoginComponent,
-    WeightchartComponent
+    WeightchartComponent,
+    DashboardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
