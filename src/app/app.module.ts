@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LoginComponent } from './components/login/login.component';
 import { AuthentificationService } from './services/authentification.service';
 import { WeightchartComponent } from './components/weightchart/weightchart.component';
+import { DatabaseService } from './services/database.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WeightchartComponent } from './components/weightchart/weightchart.compo
     PrimeComponentsModule
   ],
   providers: [
-    AuthentificationService
+    AuthentificationService,
+    DatabaseService
   ],
   bootstrap: [AppComponent]
 })

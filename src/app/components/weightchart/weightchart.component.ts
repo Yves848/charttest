@@ -13,13 +13,13 @@ export class WeightchartComponent implements OnInit {
   options: any;
   constructor(private ds: DatabaseService) {
     this.data = {
-      labels: ['un', 'deux', 'trois'],
+      labels: this.ds.aLabels,
       datasets: [
         {
           label: 'Evolution Poids',
-          data: [10, 30, 20],
+          data: this.ds.aWeights,
           borderColor: '#42A5F5',
-          tension: .4
+          tension: .2
         }
       ]
     }
@@ -37,19 +37,13 @@ export class WeightchartComponent implements OnInit {
   }
 
   async refresh() {
-    const aLabels: string[] = [];
-    const aWeights: number[] = [];
-    await this.ds.weights.forEach(async (element: poids) => {
-      aLabels.push(element.date);
-      aWeights.push(element.poids);
-      console.log('poids', aWeights);
-    })
+    console.log('ds.aweights', this.ds.aWeights);
     this.data = {
-      labels: aLabels,
+      labels: this.ds.aLabels,
       datasets: [
         {
           label: 'Evolution Poids',
-          data: aWeights,
+          data: this.ds.aWeights,
           borderColor: '#42A5F5',
           tension: .4
         }
