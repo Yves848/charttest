@@ -10,7 +10,6 @@ import { map } from "rxjs/operators";
 
 export class DatabaseService {
   collection: AngularFirestoreCollection<poids>;
-  hexCollection: AngularFirestoreCollection<poids>;
   weights: any;
   aWeights: number[] = [];
   aLabels: string[] = [];
@@ -19,9 +18,13 @@ export class DatabaseService {
   constructor(public af: AngularFirestore) {
     console.log('DatabaseService');
     this.collection = this.af.collection<poids>('weights', ref => ref.orderBy('date'));
-    this.hexCollection = this.af.collection('hexes', ref => ref.orderBy('id').limit(5))
+
     this.getdb();
 
+  }
+
+  getAll(): AngularFirestoreCollection<poids> {
+    return this.collection;
   }
 
   getdb() {
@@ -32,7 +35,7 @@ export class DatabaseService {
         const data = a.payload.doc.data();
         this.aWeights.push(data.poids);
         this.aLabels.push(data.date);
-        this.aMesures.push(data);
+        //this.aMesures.push(data);
         return data;
       })));
   }

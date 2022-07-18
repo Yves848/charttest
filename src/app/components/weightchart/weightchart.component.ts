@@ -43,7 +43,27 @@ export class WeightchartComponent implements OnInit {
     }
   }
 
+  retrieveAll() {
+    var labels: string[];
+    this.ds.getAll().snapshotChanges().subscribe(data => {
+      console.log('retrieveAll', data.map(e => {
+        console.log('e', e.payload.doc.data());
+      }));
+    })
+    /*this.ds.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.tutorials = data;
+    });*/
+  }
+
+
   async ngOnInit() {
+    //this.retrieveAll();
     setTimeout(() => {
       this.refresh();
     }, 500);
