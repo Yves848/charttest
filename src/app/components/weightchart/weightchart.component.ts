@@ -25,6 +25,7 @@ export class WeightchartComponent implements OnInit {
       }
     };
   }
+  
 
   async refresh() {
     var aLabels = this.ds.aLabels.slice(-10);
